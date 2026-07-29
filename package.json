@@ -9,7 +9,7 @@
     "test-macos-key-press": "mocha --ui tdd --timeout 5000 test/test-macos-key-press.js",
     "test-style": "prettier --check lib test",
     "test-types": "tsc -p tsconfig.json",
-    "test-unit": "mocha --ui tdd --timeout 5000 test/test.js test/helpers/**/*.js"
+    "test-unit": "mocha --ui tdd --timeout 5000 test/test.js test/test-plugin-enumeration.js test/helpers/**/*.js"
   },
   "author": "Bocoup",
   "license": "MIT",
