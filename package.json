@@ -3,7 +3,7 @@
   "version": "0.1.3",
   "description": "A WebSocket server which allows clients to observe the text enunciated by a screen reader and to simulate user input using macOS",
   "scripts": {
-    "prepare": "./scripts/prepare.js",
+    "prepare": "./scripts/build.sh",
     "prettier": "prettier --write lib test",
     "test": "npm run test-style && npm run test-types && npm run test-unit",
     "test-macos-key-press": "mocha --ui tdd --timeout 5000 test/test-macos-key-press.js",
