@@ -6,10 +6,7 @@ const net = require('net');
 
 const WebSocket = require('ws');
 
-const SOCKET_PATH = {
-  win32: '\\\\?\\pipe\\my_pipe',
-  darwin: '/tmp/at_driver_generic/driver.socket',
-}[process.platform];
+const SOCKET_PATH = '/tmp/at_driver_generic/driver.socket';
 
 const executable = path.join(__dirname, '..', 'lib', 'bin', 'at-driver');
 const invert = promise =>
@@ -240,11 +237,6 @@ suite('at-driver', () => {
       });
 
       test('sends voice events', async function () {
-        if (!SOCKET_PATH) {
-          this.skip();
-          return;
-        }
-
         await Promise.race([whenClosed, sendVoicePacket('speech', 'Hello, world!')]);
 
         const message = await Promise.race([whenClosed, nextMessage(websocket)]);
