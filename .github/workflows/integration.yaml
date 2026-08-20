@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Copy scripts before reverting
-        run:
+        run: |
           cp scripts/build.sh scripts/build-copy.sh
           cp scripts/wait-for-server.sh scripts/wait-for-server-copy.sh
 
