@@ -14,8 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Copy build script before reverting
-        run: cp scripts/build.sh scripts/build-copy.sh
+      - name: Copy scripts before reverting
+        run:
+          cp scripts/build.sh scripts/build-copy.sh
+          cp scripts/wait-for-server.sh scripts/wait-for-server-copy.sh
 
       - uses: actions/checkout@v4
         with:
@@ -44,4 +46,4 @@ jobs:
 
       - name: Detect voice integration
         working-directory: lib/bin
-        run: ../../scripts/wait-for-server.sh
+        run: ../../scripts/wait-for-server-copy.sh
