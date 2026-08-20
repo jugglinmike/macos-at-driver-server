@@ -21,15 +21,15 @@ jobs:
       - name: Setup Environment
         uses: guidepup/setup-action@0.16.0
 
-      - name: Build and install the package
-        run: npm install
+      - name: Install the package from npm
+        run: npm install @bocoup/macos-at-driver-server@0.1.2
 
       - name: Configure the system to support the AT Driver server
         env:
           DEBUG: "*"
-        working-directory: lib/bin
+        working-directory: node_modules/.bin
         run: ./at-driver install --unattended
 
       - name: Detect voice integration
-        working-directory: lib/bin
+        working-directory: node_modules/.bin
         run: ../../scripts/wait-for-server.sh
