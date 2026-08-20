@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-14, macos-15, macos-26, macos-27]
+        os: [macos-14, macos-15, macos-26, macos-27, macos-15-intel, macos-26-intel]
     steps:
       - uses: actions/checkout@v4
 
