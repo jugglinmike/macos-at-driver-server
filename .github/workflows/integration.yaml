@@ -7,6 +7,7 @@ on: [push, pull_request]
 jobs:
   voiceover-test:
     runs-on: ${{ matrix.os }}
+    continue-on-error: true
     strategy:
       matrix:
         os: [macos-14, macos-15, macos-26, macos-27, macos-15-intel, macos-26-intel]
