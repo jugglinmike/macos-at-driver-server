@@ -6,7 +6,10 @@ on: [push, pull_request]
 
 jobs:
   voiceover-test:
-    runs-on: [macos-14, macos-15, macos-26, macos-27]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-14, macos-15, macos-26, macos-27]
     steps:
       - uses: actions/checkout@v4
 
