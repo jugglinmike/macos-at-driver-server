@@ -13,6 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Copy build script before reverting
+        run: cp scripts/build.sh script/build-copy.sh
+
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
@@ -20,6 +27,9 @@ jobs:
 
       - name: Setup Environment
         uses: guidepup/setup-action@0.16.0
+
+      - name: Build the macOS assets
+        run: ./scripts/build-copy.sh
 
       - name: Build and install the package
         run: npm install
